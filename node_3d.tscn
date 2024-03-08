@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cwjajqrrw4tf2" path="res://character_body_3d.tscn" id="1_gcop7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_36trg"]
-size = Vector3(2.90381, 1, 1)
+size = Vector3(2.90381, 1, 1.07227)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yunun"]
 size = Vector3(3, 1, 1)
@@ -13,7 +13,7 @@ size = Vector3(3, 1, 1)
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(5.18785, 0, 0, 0, 1, 0, 0, 0, 10.456, 0.951904, 0, 0)
+transform = Transform3D(9.0372, 0, 0, 0, 2.39, 0, 0, 0, 8.99253, 0.951904, 0, -0.907866)
 shape = SubResource("BoxShape3D_36trg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
