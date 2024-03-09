@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://i8ppstk7d7nx"]
+
+[ext_resource type="Script" path="res://trackBox.gd" id="1_mvif0"]
+
+[node name="CSGBox3D" type="CSGBox3D"]
+size = Vector3(1, 0, 1)
+script = ExtResource("1_mvif0")
