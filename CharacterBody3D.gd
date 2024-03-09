@@ -7,6 +7,7 @@ const JUMP_VELOCITY = 4.5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -28,42 +29,3 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
-
-var starting_position = Vector3()  # Set this to your character's starting position
-var latest_location
-var last_checkpoint
-
-
-func _ready():
-	# Save the starting position when the game starts
-	starting_position = global_transform.origin
-	latest_location = starting_position
-	# Initialize checkpoint
-	last_checkpoint = 0
-
-#func _on_Area_body_entered(body):
-#	if body == self:
-#		# Teleport the character back to the starting position
-#		global_transform.origin = starting_position
-
-
-func _on_area_3d_body_entered(body):
-	if body == self:
-		global_transform.origin = latest_location  # Reset position
-
-func _process(_delta):  # Now _delta is properly prefixed since it's not used.
-	# Make sure you use the correct path to access the CamYaw node.
-	# The path should start from the current script's location (CharacterBody3D).
-	var cam_yaw = $CamYaw  # If CamYaw is a direct child of CharacterBody3D.
-	# OR, if it's nested, for example:
-	# var cam_yaw = $Node3D/CamYaw  # Use the correct path based on your hierarchy.
-	
-	if cam_yaw:
-		cam_yaw.rotation.y = rotation.y
-	else:
-		print("CamYaw node not found. Check the node path.")
-
-
-
-func _on_checkpoint_1_body_entered(body):
-	latest_location = global_transform.origin
