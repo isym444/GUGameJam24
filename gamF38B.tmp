@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci0doqjd7v1ot"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_cr4q0"]
+[ext_resource type="ArrayMesh" uid="uid://dilodcexoec23" path="res://car.obj" id="1_ymb2o"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t6fw4"]
+points = PackedVector3Array(-1.26331, -1.13244, -0.856197, 1.2754, -0.55998, 2.52787, 1, 0.959629, 2.59353, 1.2754, -0.447797, -1.00438, -0.996415, 0.98716, -1, -1.26295, -0.73513, 2.54885, -0.995443, 0.98605, 2.6358, 1.27276, -1.28672, 2.07662, 1, 0.959629, -0.95733, 1.2754, -1.28906, -0.555468, -1.24509, -1.28672, 2.07662, -1.3047, 0.00786035, -0.616221, 1.33237, 0.0080898, 2.07881, 0.984671, -1, 2.56549, -1.25127, -1.2922, -0.559238, -1.26377, -0.848882, -1.02719, -1.3047, 0.00786035, 2.07844, 1.33237, 0.0080898, -0.616221, 0.998756, -1.01208, -0.955125, -0.957001, -1, 2.56549, 1.2754, -0.840328, -1.00438, 1.27459, -1.17623, 2.3021, 1.2754, -1.17688, -0.779571, -1.24692, -1.17623, 2.3021, -1.25536, -0.449712, -1.01522, 1.2754, -0.952511, 2.47167, -1.25784, -1.18496, -0.792144, -1.26014, -0.563841, 2.54498, -0.971086, -1.01208, -0.955125, -1.25261, -1.12437, 2.36535, 1.2754, -0.728365, 2.52787, -1.25646, -0.957942, 2.48331)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ts83n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qpxt1"]
+material = SubResource("StandardMaterial3D_ts83n")
+size = Vector3(50, 1, 50)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_45i71"]
+data = PackedVector3Array(-25, 0.5, 25, 25, 0.5, 25, -25, -0.5, 25, 25, 0.5, 25, 25, -0.5, 25, -25, -0.5, 25, 25, 0.5, -25, -25, 0.5, -25, 25, -0.5, -25, -25, 0.5, -25, -25, -0.5, -25, 25, -0.5, -25, 25, 0.5, 25, 25, 0.5, -25, 25, -0.5, 25, 25, 0.5, -25, 25, -0.5, -25, 25, -0.5, 25, -25, 0.5, -25, -25, 0.5, 25, -25, -0.5, -25, -25, 0.5, 25, -25, -0.5, 25, -25, -0.5, -25, 25, 0.5, 25, -25, 0.5, 25, 25, 0.5, -25, -25, 0.5, 25, -25, 0.5, -25, 25, 0.5, -25, -25, -0.5, 25, 25, -0.5, 25, -25, -0.5, -25, 25, -0.5, 25, 25, -0.5, -25, -25, -0.5, -25)
+
+[node name="Game" type="Node3D"]
+
+[node name="Player" type="VehicleBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54502, 0)
+gravity_scale = 4.0
+script = ExtResource("1_cr4q0")
+
+[node name="Car_body" type="MeshInstance3D" parent="Player"]
+mesh = ExtResource("1_ymb2o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("ConvexPolygonShape3D_t6fw4")
+
+[node name="Front_left_wheel" type="VehicleWheel3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29481, -0.65941, -0.418982)
+use_as_steering = true
+wheel_roll_influence = 0.01
+wheel_radius = 0.63
+wheel_friction_slip = 1.4
+suspension_travel = 0.15
+suspension_stiffness = 120.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="Front_right_wheel" type="VehicleWheel3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27329, -0.65941, -0.418982)
+use_as_steering = true
+wheel_roll_influence = 0.01
+wheel_radius = 0.63
+wheel_friction_slip = 1.4
+suspension_travel = 0.15
+suspension_stiffness = 120.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="Back_left_wheel" type="VehicleWheel3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29481, -0.65941, 1.9045)
+use_as_traction = true
+wheel_roll_influence = 0.01
+wheel_radius = 0.63
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.1
+suspension_travel = 0.15
+suspension_stiffness = 80.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="Back_right_wheel" type="VehicleWheel3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27329, -0.65941, 1.9045)
+use_as_traction = true
+wheel_roll_influence = 0.01
+wheel_radius = 0.63
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.1
+suspension_travel = 0.15
+suspension_stiffness = 80.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="CenterOfMass" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+
+[node name="CameraPivot" type="Node3D" parent="Player"]
+top_level = true
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.972881, 0.231306, 0, -0.231306, 0.972881, -0.0808554, 5.59976, 5.84631)
+top_level = true
+
+[node name="ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585907, -4.74303, 1.96622)
+mesh = SubResource("BoxMesh_qpxt1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_45i71")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.261682, 0.705043, -0.659118, 0.260161, 0.709165, 0.655287, 0.929429, -1.38496e-08, -0.369001, -8.94482, 10.58, 3.69563)
+shadow_enabled = true
