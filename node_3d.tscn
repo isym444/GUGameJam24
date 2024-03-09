@@ -1,4 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmmnqlkosduru"]
+[gd_scene load_steps=4 format=3 uid="uid://bmmnqlkosduru"]
+
+[ext_resource type="PackedScene" uid="uid://dpds2x0mr8bhp" path="res://mock_racetrack.tscn" id="1_sug1k"]
+[ext_resource type="PackedScene" uid="uid://d2chx56eyuvjg" path="res://kart.tscn" id="2_eowem"]
 
 [sub_resource type="GDScript" id="GDScript_w1es1"]
 script/source = "extends Node3D
@@ -31,3 +34,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.2439, 0, 0)
 script = SubResource("GDScript_w1es1")
 
 [node name="tileTimer" type="Timer" parent="MapSpawner"]
+
+[node name="Node3D" parent="." instance=ExtResource("1_sug1k")]
+
+[node name="VehicleBody3D" parent="." instance=ExtResource("2_eowem")]
+transform = Transform3D(0.13236, 0, 0.991202, 0, 1, 0, -0.991202, 0, 0.13236, 2.30569, 1.5058, -15.6129)
