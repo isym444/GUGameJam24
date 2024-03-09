@@ -85,6 +85,8 @@ top_level = true
 [node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.972881, 0.231306, 0, -0.231306, 0.972881, -0.0808554, 3.05474, 5.84631)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+
 [node name="ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585907, -4.74303, 1.96622)
 mesh = SubResource("BoxMesh_qpxt1")
