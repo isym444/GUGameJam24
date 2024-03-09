@@ -60,7 +60,7 @@ wheel_radius = 0.63
 wheel_rest_length = 0.2
 wheel_friction_slip = 1.1
 suspension_travel = 0.15
-suspension_stiffness = 80.0
+suspension_stiffness = 100.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
@@ -72,15 +72,18 @@ wheel_radius = 0.63
 wheel_rest_length = 0.2
 wheel_friction_slip = 1.1
 suspension_travel = 0.15
-suspension_stiffness = 80.0
+suspension_stiffness = 100.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.972881, 0.231306, 0, -0.231306, 0.972881, -0.0808554, 3.05474, 5.84631)
-
 [node name="CenterOfMass" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.494515)
+
+[node name="CameraPivot" type="Node3D" parent="Player"]
+top_level = true
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.972881, 0.231306, 0, -0.231306, 0.972881, -0.0808554, 3.05474, 5.84631)
 
 [node name="ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585907, -4.74303, 1.96622)
