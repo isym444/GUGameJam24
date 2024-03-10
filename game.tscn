@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chsfaa5i7hi6p"]
+[gd_scene load_steps=19 format=3 uid="uid://chsfaa5i7hi6p"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_cr4q0"]
 [ext_resource type="ArrayMesh" uid="uid://duo0vs1tuk45v" path="res://kart.obj" id="2_oawuo"]
@@ -6,9 +6,29 @@
 [ext_resource type="AudioStream" uid="uid://c1q0x1h0eavme" path="res://sounds/carSound.mp3" id="3_wa37k"]
 [ext_resource type="PackedScene" uid="uid://c17nfm2mvvuxs" path="res://obstacle_2.tscn" id="4_ioumi"]
 [ext_resource type="PackedScene" uid="uid://gb66l3q8rh3o" path="res://obstacle_3.tscn" id="5_brqfd"]
+[ext_resource type="Shader" path="res://pixel.gdshader" id="7_25ay1"]
+[ext_resource type="Shader" path="res://toon.gdshader" id="8_3bwgy"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dixyc"]
 points = PackedVector3Array(1.98128, 0.110642, 1.50522, 1.98014, 0.238766, 1.65321, 1.98042, 0.1867, 1.61252, 1.98071, 0.143311, 1.56269, 1.97699, 0.111408, 1.5637, 1.97699, 0.0932866, 1.53167, 1.97728, 0.0792491, 1.50014, 1.98128, 0.0899687, 1.44216, 1.98128, 0.110642, -0.831506, 1.98014, 1.90387, -1.91672, 1.97956, 0.297979, 1.6827, 1.97556, 0.272201, 1.70152, 1.97585, 0.239277, 1.68474, 1.97613, 0.209926, 1.66643, 1.97642, 0.18083, 1.64405, 1.97642, 0.155562, 1.62015, 1.9767, 0.131571, 1.59218, 1.96612, 0.0800148, 1.56218, 1.96612, 0.0784835, 1.55964, 1.81393, 0.430697, 2.78674, 1.96927, 0.0687848, 1.52353, 1.96641, 0.0486219, 1.49251, 1.97728, 0.0677639, 1.46505, 1.97728, 0.0601071, 1.43148, 1.97756, 0.055513, 1.39487, 1.98128, 0.0818014, 1.37707, 1.98128, 0.104261, -1.08984, 1.98099, 0.133868, -1.14883, 1.98071, 0.174704, -1.20121, 1.98042, 0.224729, -1.24444, 1.97985, 0.28241, -1.27698, 1.97585, 0.287259, -1.30851, 1.82309, 0.469492, -2.07081, 1.8002, 0.469492, -2.12624, 1.76387, 0.469492, -2.17404, 1.76387, 1.49015, -2.17404, 1.71638, 1.49015, -2.21015, 1.71695, 1.52868, -2.20049, 1.66289, 1.52945, -2.22388, 1.60167, 1.56314, -2.21015, -0.935762, 1.90387, -1.91672, 1.60167, 2.57308, -0.845236, 1.60167, 2.57308, 0.939728, 1.82309, 1.52792, 2.7252, 1.83109, 1.49015, 2.7252, 1.97613, 0.734673, 1.48844, 1.97642, 0.704811, 1.54743, 1.9767, 0.66423, 1.59981, 1.97756, 0.556269, 1.67558, 1.97899, 0.361786, 1.69999, 1.97499, 0.340091, 1.72338, 1.97527, 0.304615, 1.71372, 1.82309, 0.469492, 2.78419, 1.96011, 0.0595966, 1.54743, 1.8002, 0.469492, 2.83962, 1.79076, 0.431208, 2.84013, 1.79047, 0.396241, 2.78572, 1.95239, 0.0422412, 1.53523, 1.9604, 0.0315216, 1.47369, 1.96641, 0.0478562, 1.48946, 1.96927, 0.0453039, 1.45233, 1.95983, 0.0453039, 1.51438, 1.96669, 0.0315216, 1.41775, 1.96669, 0.0312664, 1.4147, 1.96955, 0.0361157, 1.37809, 1.97756, 0.0544921, 1.36029, 1.98128, 0.0818014, -0.960166, 1.98128, 0.0866507, -1.02577, 1.97728, 0.0631698, -1.04763, 1.97728, 0.0731237, -1.08323, 1.97728, 0.0853746, -1.11527, 1.97728, 0.101964, -1.14832, 1.97699, 0.120596, -1.17782, 1.9767, 0.143311, -1.20681, 1.9767, 0.167303, -1.23172, 1.97642, 0.195122, -1.25613, 1.97613, 0.223453, -1.27597, 1.97585, 0.255611, -1.29427, 1.81393, 0.430187, -2.07284, 1.79047, 0.430952, -2.12675, 1.75843, 0.431973, -2.16845, 1.71667, 0.431208, -2.20049, 1.71638, 0.469492, -2.21015, 1.66117, 1.49015, -2.23303, 1.60167, 1.52792, -2.23303, -0.533835, 1.56314, -2.21015, -0.755252, 0.469492, -2.07081, -0.940911, 1.81939, -1.8796, -0.940911, 1.83368, -1.8796, -0.940911, 1.83368, -1.61923, -0.533835, 2.57308, 0.939728, -0.533835, 2.57308, -0.845236, -0.59534, 1.52894, -2.22388, -0.648835, 1.52843, -2.20049, -0.648263, 1.49015, -2.21015, -0.69575, 1.49015, -2.17404, -0.69575, 0.469492, -2.17404, -0.732367, 0.469492, -2.12624, 1.60167, 1.59326, 2.88692, 1.6606, 1.58994, 2.88183, 1.66146, 1.60015, 2.86098, 1.66203, 1.61036, 2.84013, 1.70608, 1.58203, 2.86963, 1.71095, 1.59785, 2.83454, 1.74613, 1.58203, 2.82945, 1.77102, 1.55957, 2.83403, 1.79076, 1.5634, 2.78521, 1.81393, 1.52945, 2.78623, 1.82309, 1.49015, 2.78419, 1.97842, 0.42789, 1.70508, 1.97785, 0.493483, 1.69643, 1.97699, 0.61395, 1.64304, 1.8002, 1.49015, 2.83962, 1.78218, 0.469492, 2.86352, 1.77102, 0.40007, 2.83454, 1.77474, 0.431718, 2.86098, 1.74613, 0.403133, 2.86963, 1.74613, 0.37761, 2.82945, 1.75843, 0.369698, 2.78419, 1.94152, 0.0271828, 1.52556, 1.94638, 0.0238648, 1.50471, 1.94638, 0.0202916, 1.49403, 1.95267, 0.0167185, 1.45895, 1.95983, 0.0238648, 1.4386, 1.9604, 0.018505, 1.39639, 1.96669, 0.0292246, 1.34147, 1.97756, 0.0544921, -0.976439, 1.97756, 0.0572996, -1.01356, 1.96669, 0.041986, -1.07103, 1.96955, 0.0414755, -1.0339, 1.96669, 0.0430069, -1.07408, 1.96927, 0.0616385, -1.10612, 1.96641, 0.0692953, -1.14222, 1.96641, 0.0708266, -1.14527, 1.96898, 0.0953285, -1.17324, 1.96612, 0.109876, -1.20731, 1.96612, 0.111918, -1.20986, 1.96869, 0.141525, -1.23274, 1.79076, 0.396241, -2.07183, 1.95954, 0.0897135, -1.19816, 1.95239, 0.0705714, -1.1885, 1.74613, 0.403133, -2.15624, 1.77102, 0.40007, -2.12065, 1.71095, 0.40007, -2.18116, 1.66231, 0.396241, -2.20049, 1.66346, 0.430697, -2.22388, 1.66117, 0.469492, -2.23303, 1.60167, 1.49015, -2.24066, -0.533835, 1.52792, -2.23303, -0.745812, 0.430697, -2.07335, -0.910302, 0.191294, -1.25613, -0.910588, 0.219879, -1.27648, -0.910588, 0.251783, -1.29478, -0.910874, 0.283686, -1.30851, -0.940911, 1.81939, -1.61923, -0.915165, 0.278582, -1.27698, -0.914593, 0.2209, -1.24444, -0.914307, 0.170876, -1.20121, -0.914021, 0.130039, -1.14883, -0.913734, 0.0828223, -1.02628, -0.913734, 0.077973, -0.960166, -0.918025, 0.610122, 1.64304, -0.918312, 0.660402, 1.59981, -0.918598, 0.700983, 1.54743, -0.918884, 0.730844, 1.48844, -0.762976, 1.49015, 2.7252, -0.755252, 1.52792, 2.7252, -0.745812, 1.52894, 2.78674, -0.722641, 1.5634, 2.78572, -0.703188, 1.55957, 2.83454, -0.678014, 1.58203, 2.82945, -0.643113, 1.59785, 2.83403, -0.63825, 1.58203, 2.86963, -0.594196, 1.61036, 2.84013, -0.592765, 1.58968, 2.88183, -0.533835, 1.59326, 2.88692, -0.593051, 1.49015, -2.23303, -0.648263, 0.469492, -2.21015, -0.648835, 0.430952, -2.20049, -0.690315, 0.431973, -2.16845, -0.722641, 0.431208, -2.12675, 1.60167, 1.56314, 2.92353, 1.66231, 1.5634, 2.91387, 1.73412, 1.57437, 2.85742, 1.71095, 1.55957, 2.89455, 1.74013, 1.5782, 2.84369, 1.75872, 1.55804, 2.85183, 1.79047, 1.52868, 2.84013, 1.78218, 1.49015, 2.86352, 1.76387, 0.469492, 2.88692, 1.74013, 0.381438, 2.84369, 1.73412, 0.385267, 2.85742, 1.75843, 0.431973, 2.88183, 1.71695, 0.430952, 2.91387, 1.71095, 0.40007, 2.89455, 1.71095, 0.361786, 2.83403, 1.90004, 0.00880641, 1.54133, 1.92664, 0.0205469, 1.53675, 1.94152, 0.010593, 1.47573, 1.9418, 0.00395709, 1.44623, 1.94638, 0.00472277, 1.42538, 1.95267, 0.00676459, 1.3786, 1.96011, 0.0177394, 1.36029, 1.96669, 0.0292246, -0.995255, 1.96669, 0.0294798, -0.998306, 1.9604, 0.0205469, -1.01916, 1.95983, 0.0269275, -1.05425, 1.9604, 0.0381576, -1.09595, 1.95983, 0.0511741, -1.12951, 1.96011, 0.0703162, -1.16765, 1.94638, 0.0481114, -1.16104, 1.73412, 0.385267, -2.14404, 1.74613, 0.37761, -2.11607, 1.94152, 0.0542369, -1.18087, 1.70608, 0.37761, -2.15624, 1.60167, 0.396497, -2.21015, 1.6606, 0.369698, -2.16845, 1.60167, 0.36638, -2.17404, 1.60167, 0.431718, -2.23303, 1.60167, 0.469492, -2.24066, -0.533835, 1.49015, -2.24066, -0.722641, 0.396241, -2.07234, -0.883983, 0.0672535, -1.18901, -0.891993, 0.0861403, -1.19816, -0.898573, 0.108345, -1.20986, -0.90172, 0.137696, -1.23274, -0.910016, 0.163474, -1.23223, -0.913734, 0.077973, 1.37656, -0.914021, 0.106814, 1.50471, -0.914307, 0.139483, 1.56218, -0.914593, 0.182871, 1.61252, -0.916023, 0.357957, 1.69999, -0.916595, 0.424061, 1.70457, -0.917167, 0.489655, 1.69643, -0.909729, 0.139483, -1.20681, -0.909729, 0.116768, -1.17782, -0.909443, 0.0983912, -1.14832, -0.909443, 0.0818014, -1.11578, -0.913734, 0.100433, -1.08984, -0.909443, 0.0692953, -1.08323, -0.909157, 0.0595966, -1.04763, -0.909157, 0.0534712, -1.01356, -0.909157, 0.0509189, -0.976948, -0.917453, 0.552696, 1.67558, -0.755252, 1.49015, 2.78419, -0.732367, 1.49015, 2.83962, -0.722641, 1.52843, 2.84013, -0.672006, 1.5782, 2.84369, -0.678014, 1.5565, 2.86963, -0.665999, 1.57437, 2.85742, -0.642827, 1.55957, 2.89455, -0.59391, 1.5634, 2.91387, -0.533835, 1.56314, 2.92353, -0.593051, 0.469492, -2.23303, -0.594768, 0.430187, -2.22388, -0.59391, 0.396241, -2.20049, -0.642827, 0.40007, -2.18116, -0.678014, 0.403133, -2.15624, -0.703188, 0.40007, -2.12116, 1.60167, 1.52792, 2.94642, 1.66346, 1.52894, 2.93726, 1.71667, 1.52843, 2.91387, 1.74613, 1.5565, 2.86963, 1.75843, 1.52766, 2.88183, 1.76387, 1.49015, 2.88692, 1.71638, 0.469492, 2.92353, 1.70608, 0.37761, 2.86963, 1.70866, 0.369698, 2.85183, 1.66203, 0.396241, 2.91387, 1.66289, 0.430187, 2.93726, 1.66231, 0.34928, 2.84013, 1.90032, -0.0136536, 1.47369, 1.92664, -0.00114745, 1.47064, 1.92664, -0.00446541, 1.45589, 1.92693, -0.0131431, 1.38673, 1.9418, -0.00242359, 1.39436, 1.94638, 0.00344664, 1.41419, 1.9418, -0.00318927, 1.36385, 1.95267, 0.00676459, -0.958132, 1.96011, 0.0177394, -0.976439, 1.94667, 0.00242573, -1.00441, 1.95267, 0.0126348, -1.03848, 1.94638, 0.0174841, -1.08527, 1.95239, 0.0343291, -1.11629, 1.94609, 0.0430069, -1.15087, 1.94152, 0.030756, -1.13409, 1.71095, 0.361786, -2.12116, 1.92664, 0.0182498, -1.13103, 1.90032, 0.00625414, -1.13561, 1.66203, 0.34928, -2.12675, -0.533835, 0.396497, -2.21015, 1.60167, 0.343154, -2.12624, -0.533835, 0.36638, -2.17404, -0.533835, 0.431718, -2.23303, -0.533835, 0.469492, -2.24066, -0.873113, 0.0509189, -1.18087, -0.87769, 0.0447935, -1.16104, -0.891707, 0.047601, -1.12951, -0.891421, 0.0669982, -1.16765, -0.898287, 0.0657221, -1.14273, -0.898287, 0.0672535, -1.14527, -0.901434, 0.0915001, -1.17324, -0.898573, 0.106558, -1.20731, -0.909157, 0.0509189, 1.35978, -0.909157, 0.0516846, 1.39487, -0.913734, 0.0861403, 1.44216, -0.909443, 0.0639355, 1.46505, -0.909443, 0.0754207, 1.50014, -0.909443, 0.0897135, 1.53167, -0.909729, 0.107835, 1.5637, -0.910016, 0.127742, 1.59167, -0.910016, 0.151989, 1.61964, -0.910302, 0.177001, 1.64354, -0.910588, 0.206097, 1.66643, -0.914879, 0.234938, 1.6527, -0.915451, 0.294151, 1.6827, -0.911446, 0.300786, 1.71372, -0.911732, 0.336263, 1.72338, -0.912018, 0.370463, 1.72949, -0.912304, 0.407471, 1.73203, -0.755252, 0.469492, 2.78419, -0.901147, 0.0578101, -1.10612, -0.898001, 0.0394337, -1.07408, -0.898001, 0.0384128, -1.07103, -0.900861, 0.0379023, -1.0339, -0.898001, 0.0259066, -0.998815, -0.898001, 0.0256514, -0.995763, -0.714059, 1.49015, 2.86352, -0.732367, 0.469492, 2.83962, -0.706621, 1.52792, 2.86098, -0.690315, 1.52766, 2.88183, -0.648835, 1.52868, 2.91387, -0.594768, 1.52945, 2.93726, -0.533835, 1.52792, 2.94642, -0.592765, 0.369953, -2.16845, -0.63825, 0.37761, -2.15624, -0.665999, 0.385267, -2.14404, -0.678014, 0.37761, -2.11607, 1.60167, 1.49015, 2.95404, 1.66117, 1.49015, 2.94642, 1.71638, 1.49015, 2.92353, 1.66117, 0.469492, 2.94642, 1.6606, 0.369953, 2.88183, 1.66146, 0.359489, 2.86098, 1.60167, 0.396497, 2.92353, 1.60167, 0.36638, 2.88692, 1.60167, 0.431718, 2.94642, 1.60167, 0.354639, 2.86352, 1.60167, 0.343154, 2.83962, 1.872, -0.0162059, 1.48895, 1.87229, -0.0259045, 1.44572, 1.90032, -0.0169715, 1.45793, 1.90061, -0.0259045, 1.38775, 1.92693, -0.0133984, 1.37148, 1.9418, -0.00318927, -0.972879, 1.94638, 0.00166005, -0.993221, 1.9418, 0.000639137, -1.02526, 1.9418, 0.00574369, -1.05526, 1.94638, 0.0146766, -1.07408, 1.94152, 0.0197812, -1.10561, 1.92664, 0.0126348, -1.11629, 1.90032, 0.000639137, -1.12086, 1.872, -0.00982518, -1.10968, 1.872, 0.00599891, -1.15087, -0.533835, 0.343154, -2.12624, 1.62226, -0.011867, -1.10968, -0.594196, 0.34928, -2.12675, -0.872827, 0.027438, -1.13409, -0.87769, 0.0396889, -1.15087, -0.883697, 0.0310112, -1.1168, -0.891135, 0.0348396, -1.09595, -0.898001, 0.0256514, 1.34147, -0.900861, 0.0322873, 1.37809, -0.898001, 0.0276932, 1.4147, -0.898001, 0.0279485, 1.41775, -0.909157, 0.0562787, 1.43098, -0.901147, 0.0417307, 1.45233, -0.898287, 0.044283, 1.48946, -0.898287, 0.0450487, 1.492, -0.901147, 0.0652116, 1.52353, -0.898573, 0.0749103, 1.55964, -0.898573, 0.0764416, 1.56218, -0.745812, 0.430187, 2.78623, -0.910874, 0.235448, 1.68474, -0.91116, 0.268373, 1.70101, -0.891707, 0.0233544, -1.05475, -0.891135, 0.0174841, -1.01916, -0.891707, 0.013911, -0.976439, -0.69575, 1.49015, 2.88692, -0.714059, 0.469492, 2.86352, -0.722641, 0.430952, 2.84013, -0.648263, 1.49015, 2.92353, -0.593051, 1.49015, 2.94642, -0.533835, 1.49015, 2.95404, -0.643113, 0.361786, -2.12065, -0.857665, 0.0154423, -1.13103, 1.60167, 0.469492, 2.95404, -0.533835, 0.396497, 2.92353, -0.533835, 0.36638, 2.88692, -0.533835, 0.431718, 2.94642, -0.533835, 0.354639, 2.86352, -0.533835, 0.343154, 2.83962, 1.62226, -0.0182477, 1.48895, 1.62226, -0.0279463, 1.44521, 1.87229, -0.0312643, 1.40199, 1.87229, -0.0325404, 1.35724, 1.90061, -0.0261597, 1.37148, 1.92693, -0.0133984, -0.965251, 1.92693, -0.00854904, -1.03441, 1.92693, -0.00574154, -1.04967, 1.90032, -0.0182477, -1.05221, 1.87229, -0.0215656, -1.06696, -0.80274, -0.011867, -1.10968, 1.62226, -0.0236075, -1.06696, -0.80274, 0.00395709, -1.15087, -0.831061, 0.00395709, -1.13561, -0.857665, 0.00982732, -1.1168, -0.872827, 0.0164632, -1.10612, -0.877404, 0.0141662, -1.08527, -0.891707, 0.013911, 1.36029, -0.891135, 0.0151871, 1.39639, -0.891707, 0.0202916, 1.4386, -0.891993, 0.0417307, 1.51438, -0.891135, 0.0284589, 1.47369, -0.891421, 0.0565339, 1.54743, -0.722641, 0.396241, 2.78521, -0.883983, 0.0389232, 1.53523, -0.883697, 0.00931687, -1.03899, -0.877404, -0.000636999, -1.00441, -0.877404, -0.00140268, -0.993221, -0.883697, 0.00344664, -0.958132, -0.69575, 0.469492, 2.88692, -0.690315, 0.431973, 2.88183, -0.703188, 0.40007, 2.83403, -0.678014, 0.403133, 2.86963, -0.648263, 0.469492, 2.92353, -0.593051, 0.469492, 2.94642, -0.533835, 0.469492, 2.95404, -0.831061, -0.00191313, -1.12086, -0.594196, 0.396241, 2.91387, -0.592765, 0.369698, 2.88183, -0.59534, 0.430697, 2.93726, -0.59391, 0.34928, 2.84013, -0.80274, -0.0182477, 1.48895, -0.80274, -0.0279463, 1.44521, 1.62226, -0.0333061, 1.40148, 1.62226, -0.034327, 1.35724, 1.87229, -0.0325404, -0.97949, 1.90061, -0.0261597, -0.965251, 1.90061, -0.0210552, -1.03645, 1.87229, -0.0292225, -1.02322, -0.80274, -0.0236075, -1.06696, -0.831061, -0.0208, -1.05221, 1.62226, -0.0312643, -1.02322, -0.857665, -0.00880427, -1.04967, -0.872541, 0.00268096, -1.05526, -0.877404, 0.0113587, -1.07408, -0.883697, 0.00344664, 1.3786, -0.877404, 0.000128683, 1.41419, -0.883697, 0.0134005, 1.45844, -0.87769, 0.0172289, 1.49403, -0.87769, 0.0208021, 1.50471, -0.678014, 0.37761, 2.82945, -0.872827, 0.0241201, 1.52556, -0.872541, -0.00267882, -1.02526, -0.872541, -0.00650723, -0.973388, -0.648835, 0.431208, 2.91387, -0.672006, 0.381438, 2.84369, -0.665999, 0.385267, 2.85742, -0.643113, 0.40007, 2.89455, -0.63825, 0.37761, 2.86963, -0.642827, 0.361786, 2.83454, -0.831061, -0.0159506, 1.47369, -0.831061, -0.0195238, 1.45793, -0.831061, -0.0282015, 1.38724, -0.80274, -0.0333061, 1.40148, -0.802454, -0.034327, 1.35724, 1.62226, -0.034327, -0.97949, -0.80274, -0.0312643, -1.02322, -0.831061, -0.0236075, -1.03645, -0.857665, -0.0113565, -1.03441, -0.872541, -0.00650723, 1.36385, -0.872541, -0.00574154, 1.39385, -0.872827, 0.000894368, 1.44623, -0.877404, 0.00166005, 1.42538, -0.872827, 0.00753028, 1.47573, -0.857951, 0.0177394, 1.53624, -0.857665, -0.0164611, -0.965251, -0.831347, 0.00625414, 1.54133, -0.857665, -0.00395495, 1.47064, -0.857665, -0.00752814, 1.45539, -0.857665, -0.0159506, 1.38673, -0.857665, -0.0164611, 1.37148, -0.831061, -0.028712, 1.37148, -0.802454, -0.034327, -0.97949, -0.831061, -0.028712, -0.965251)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pq6kf"]
+render_priority = 0
+shader = ExtResource("7_25ay1")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qc2ll"]
+material = SubResource("ShaderMaterial_pq6kf")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gehb3"]
+render_priority = 0
+shader = ExtResource("8_3bwgy")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vqij8"]
+material = SubResource("ShaderMaterial_gehb3")
+flip_faces = true
+size = Vector2(2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ts83n"]
 
@@ -25,21 +45,35 @@ data = PackedVector3Array(-25, 0.5, 25, 25, 0.5, 25, -25, -0.5, 25, 25, 0.5, 25,
 
 [node name="Game" type="Node3D"]
 
-[node name="Player" type="VehicleBody3D" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 6
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(192, 108)
+render_target_update_mode = 4
+
+[node name="Player" type="VehicleBody3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54502, 0)
 gravity_scale = 4.0
 center_of_mass_mode = 1
 script = ExtResource("1_cr4q0")
 
-[node name="Car_body" type="MeshInstance3D" parent="Player"]
+[node name="Car_body" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Player"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.434793, -1.10495, 1.12794)
 mesh = ExtResource("2_oawuo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Player"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.434793, -1.10495, 1.12794)
 shape = SubResource("ConvexPolygonShape3D_dixyc")
 
-[node name="Front_left_wheel" type="VehicleWheel3D" parent="Player"]
+[node name="Front_left_wheel" type="VehicleWheel3D" parent="SubViewportContainer/SubViewport/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29481, -0.65941, -0.418982)
 use_as_steering = true
 wheel_roll_influence = 0.01
@@ -50,7 +84,7 @@ suspension_stiffness = 120.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
-[node name="Front_right_wheel" type="VehicleWheel3D" parent="Player"]
+[node name="Front_right_wheel" type="VehicleWheel3D" parent="SubViewportContainer/SubViewport/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27329, -0.65941, -0.418982)
 use_as_steering = true
 wheel_roll_influence = 0.01
@@ -61,7 +95,7 @@ suspension_stiffness = 120.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
-[node name="Back_left_wheel" type="VehicleWheel3D" parent="Player"]
+[node name="Back_left_wheel" type="VehicleWheel3D" parent="SubViewportContainer/SubViewport/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29481, -0.65941, 1.9045)
 use_as_traction = true
 wheel_roll_influence = 0.01
@@ -73,7 +107,7 @@ suspension_stiffness = 100.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
-[node name="Back_right_wheel" type="VehicleWheel3D" parent="Player"]
+[node name="Back_right_wheel" type="VehicleWheel3D" parent="SubViewportContainer/SubViewport/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27329, -0.65941, 1.9045)
 use_as_traction = true
 wheel_roll_influence = 0.01
@@ -85,158 +119,173 @@ suspension_stiffness = 100.0
 damping_compression = 1.9
 damping_relaxation = 2.0
 
-[node name="CenterOfMass" type="Node3D" parent="Player"]
+[node name="CenterOfMass" type="Node3D" parent="SubViewportContainer/SubViewport/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.494515)
 
-[node name="CameraPivot" type="Node3D" parent="Player"]
+[node name="CameraPivot" type="Node3D" parent="SubViewportContainer/SubViewport/Player"]
 top_level = true
 
-[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Player/CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.972881, 0.231306, 0, -0.231306, 0.972881, -0.0808554, 3.05474, 5.84631)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+[node name="pixelShader" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Player/CameraPivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.97288, -0.231306, 0, 0.231306, 0.97288, -0.044, -0.267, -0.553)
+mesh = SubResource("QuadMesh_qc2ll")
+skeleton = NodePath("../../../..")
 
-[node name="carsounds" type="AudioStreamPlayer" parent="Player"]
+[node name="toonShader" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Player/CameraPivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.972881, -0.231306, 0, 0.231306, 0.972881, -0.044, -0.267, -0.553)
+mesh = SubResource("QuadMesh_vqij8")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Player"]
+
+[node name="carsounds" type="AudioStreamPlayer" parent="SubViewportContainer/SubViewport/Player"]
 stream = ExtResource("3_wa37k")
 volume_db = 5.0
 pitch_scale = 2.0
 
-[node name="ground" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.51364, -0.585907, -0.237842, -97.5663)
-mesh = SubResource("BoxMesh_qpxt1")
+[node name="level" type="Node3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54502, 0)
 
-[node name="Obstacle1" parent="ground" instance=ExtResource("3_uj50o")]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(-0.261682, 0.705043, -0.659118, 0.260161, 0.709165, 0.655287, 0.929429, -5.40866e-12, -0.369, -8.94482, 8.03498, 3.69563)
+shadow_enabled = true
+
+[node name="ground" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.51364, -0.585907, -2.78286, -97.5663)
+mesh = SubResource("BoxMesh_qpxt1")
+skeleton = NodePath("../../../..")
+
+[node name="Obstacle1" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("3_uj50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 0.585907, 1.91963, 18.2854)
 
-[node name="Area3D" type="Area3D" parent="ground/Obstacle1"]
+[node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle1"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/Obstacle1/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle1/Area3D"]
 transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_j8lfs")
 
-[node name="Obstacle2" parent="ground" instance=ExtResource("4_ioumi")]
+[node name="Obstacle2" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("4_ioumi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, -8.68142, 1.91963, 18.1058)
 
-[node name="Obstacle3" parent="ground" instance=ExtResource("5_brqfd")]
+[node name="Obstacle3" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("5_brqfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07281, 0, 17.8107)
 
-[node name="Obstacle4" parent="ground" instance=ExtResource("4_ioumi")]
+[node name="Obstacle4" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("4_ioumi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, -5.22808, 1.91963, 16.1629)
 
-[node name="Obstacle5" parent="ground" instance=ExtResource("4_ioumi")]
+[node name="Obstacle5" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("4_ioumi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 5.45094, 1.91963, 14.4606)
 
-[node name="Area3D" type="Area3D" parent="ground/Obstacle5"]
+[node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle5"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/Obstacle5/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle5/Area3D"]
 transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_j8lfs")
 
-[node name="Obstacle6" parent="ground" instance=ExtResource("4_ioumi")]
+[node name="Obstacle6" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("4_ioumi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, -12.2555, 1.91963, 10.7821)
 
-[node name="Obstacle7" parent="ground" instance=ExtResource("4_ioumi")]
+[node name="Obstacle7" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("4_ioumi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 2.78129, 1.91963, 7.30078)
 
-[node name="Obstacle8" parent="ground" instance=ExtResource("4_ioumi")]
+[node name="Obstacle8" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("4_ioumi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, -5.22808, 1.91963, 0.307631)
 
-[node name="Area3D" type="Area3D" parent="ground/Obstacle8"]
+[node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle8"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/Obstacle8/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle8/Area3D"]
 transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_j8lfs")
 
-[node name="Obstacle9" parent="ground" instance=ExtResource("4_ioumi")]
+[node name="Obstacle9" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("4_ioumi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, -5.22808, 1.91963, -8.76996)
 
-[node name="Obstacle10" parent="ground" instance=ExtResource("4_ioumi")]
+[node name="Obstacle10" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("4_ioumi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 8.93235, 1.91963, -3.4564)
 
-[node name="Obstacle11" parent="ground" instance=ExtResource("4_ioumi")]
+[node name="Obstacle11" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("4_ioumi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 8.54701, 1.91963, 3.99071)
 
-[node name="Obstacle12" parent="ground" instance=ExtResource("4_ioumi")]
+[node name="Obstacle12" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("4_ioumi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 10.1713, 1.91963, -11.3696)
 
-[node name="Obstacle13" parent="ground" instance=ExtResource("4_ioumi")]
+[node name="Obstacle13" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("4_ioumi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 12.4831, 1.91963, 11.8338)
 
-[node name="Obstacle14" parent="ground" instance=ExtResource("3_uj50o")]
+[node name="Obstacle14" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("3_uj50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, -10.964, 1.91963, 13.9415)
 
-[node name="Area3D" type="Area3D" parent="ground/Obstacle14"]
+[node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle14"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/Obstacle14/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle14/Area3D"]
 transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_j8lfs")
 
-[node name="Obstacle15" parent="ground" instance=ExtResource("3_uj50o")]
+[node name="Obstacle15" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("3_uj50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 0.585907, 1.91963, 15.0133)
 
-[node name="Obstacle16" parent="ground" instance=ExtResource("3_uj50o")]
+[node name="Obstacle16" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("3_uj50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, -9.02225, 1.91963, 11.53)
 
-[node name="Obstacle17" parent="ground" instance=ExtResource("3_uj50o")]
+[node name="Obstacle17" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("3_uj50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 0.585907, 1.91963, 9.57986)
 
-[node name="Area3D" type="Area3D" parent="ground/Obstacle17"]
+[node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle17"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/Obstacle17/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle17/Area3D"]
 transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_j8lfs")
 
-[node name="Obstacle18" parent="ground" instance=ExtResource("3_uj50o")]
+[node name="Obstacle18" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("3_uj50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, -9.77238, 1.91963, 7.41504)
 
-[node name="Obstacle19" parent="ground" instance=ExtResource("3_uj50o")]
+[node name="Obstacle19" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("3_uj50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 7.84647, 1.91963, 1.65763)
 
-[node name="Area3D" type="Area3D" parent="ground/Obstacle19"]
+[node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle19"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/Obstacle19/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle19/Area3D"]
 transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_j8lfs")
 
-[node name="Obstacle20" parent="ground" instance=ExtResource("3_uj50o")]
+[node name="Obstacle20" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("3_uj50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, -12.7651, 1.91963, -5.49205)
 
-[node name="Obstacle21" parent="ground" instance=ExtResource("3_uj50o")]
+[node name="Obstacle21" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("3_uj50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 16.8905, 1.91963, -5.6153)
 
-[node name="Area3D" type="Area3D" parent="ground/Obstacle21"]
+[node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle21"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/Obstacle21/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/ground/Obstacle21/Area3D"]
 transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_j8lfs")
 
-[node name="Obstacle22" parent="ground" instance=ExtResource("3_uj50o")]
+[node name="Obstacle22" parent="SubViewportContainer/SubViewport/level/ground" instance=ExtResource("3_uj50o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, -18.1879, 1.91963, -2.78233)
 
-[node name="Target" type="Area3D" parent="ground"]
+[node name="Target" type="Area3D" parent="SubViewportContainer/SubViewport/level/ground"]
 transform = Transform3D(10.3598, 0, 0, 0, 45.2747, 0, 0, 0, 23.3124, 0, 0, -15.1324)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/Target"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/ground/Target"]
 transform = Transform3D(0.120606, 0, 0, 0, 1.48605, 0, 0, 0, 0.000287005, 0, 0, -0.000278473)
 shape = SubResource("ConcavePolygonShape3D_45i71")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="ground"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/level/ground"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/ground/StaticBody3D"]
 transform = Transform3D(51.2909, 0, 0, 0, 1, 0, 0, 0, 49.8973, 0, 0.219707, 0)
 shape = SubResource("BoxShape3D_1xx1p")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.261682, 0.705043, -0.659118, 0.260161, 0.709165, 0.655287, 0.929429, -1.38496e-08, -0.369001, -8.94482, 10.58, 3.69563)
-shadow_enabled = true
+[node name="CameraPivot" type="Node3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.54502, 0)
 
-[node name="CameraPivot" type="Node3D" parent="."]
-
-[connection signal="body_entered" from="ground/Obstacle1/Area3D" to="Player" method="_on_area_3d_body_entered"]
-[connection signal="body_entered" from="ground/Obstacle5/Area3D" to="Player" method="_on_area_3d_body_entered"]
-[connection signal="body_entered" from="ground/Obstacle8/Area3D" to="Player" method="_on_area_3d_body_entered"]
-[connection signal="body_entered" from="ground/Obstacle14/Area3D" to="Player" method="_on_area_3d_body_entered"]
-[connection signal="body_entered" from="ground/Obstacle17/Area3D" to="Player" method="_on_area_3d_body_entered"]
-[connection signal="body_entered" from="ground/Obstacle19/Area3D" to="Player" method="_on_area_3d_body_entered"]
-[connection signal="body_entered" from="ground/Obstacle21/Area3D" to="Player" method="_on_area_3d_body_entered"]
-[connection signal="body_entered" from="ground/Target" to="Player" method="_on_target_body_entered"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/level/ground/Obstacle1/Area3D" to="SubViewportContainer/SubViewport/Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/level/ground/Obstacle5/Area3D" to="SubViewportContainer/SubViewport/Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/level/ground/Obstacle8/Area3D" to="SubViewportContainer/SubViewport/Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/level/ground/Obstacle14/Area3D" to="SubViewportContainer/SubViewport/Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/level/ground/Obstacle17/Area3D" to="SubViewportContainer/SubViewport/Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/level/ground/Obstacle19/Area3D" to="SubViewportContainer/SubViewport/Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/level/ground/Obstacle21/Area3D" to="SubViewportContainer/SubViewport/Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/level/ground/Target" to="SubViewportContainer/SubViewport/Player" method="_on_target_body_entered"]
