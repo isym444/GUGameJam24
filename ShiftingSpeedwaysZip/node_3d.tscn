@@ -1,0 +1,98 @@
+[gd_scene load_steps=16 format=3 uid="uid://bmmnqlkosduru"]
+
+[ext_resource type="PackedScene" uid="uid://dpds2x0mr8bhp" path="res://mock_racetrack.tscn" id="1_sug1k"]
+[ext_resource type="PackedScene" uid="uid://d2chx56eyuvjg" path="res://kart.tscn" id="2_eowem"]
+[ext_resource type="PackedScene" uid="uid://dgix7rv2c5s4g" path="res://trackBox.tscn" id="3_siyoy"]
+[ext_resource type="PackedScene" uid="uid://pb0h7tsrj5gg" path="res://obstacle_1.tscn" id="4_eyu15"]
+[ext_resource type="PackedScene" uid="uid://c17nfm2mvvuxs" path="res://obstacle_2.tscn" id="5_doxny"]
+[ext_resource type="PackedScene" uid="uid://gb66l3q8rh3o" path="res://obstacle_3.tscn" id="6_17yyr"]
+[ext_resource type="PackedScene" uid="uid://s0o7hnwncsan" path="res://obstacle_4.tscn" id="7_7k8en"]
+[ext_resource type="PackedScene" uid="uid://cvebconlfhlws" path="res://obstacle_5.tscn" id="8_o2coe"]
+[ext_resource type="PackedScene" uid="uid://01gr2tyb5vwn" path="res://obstacle_6.tscn" id="9_uwsmj"]
+[ext_resource type="PackedScene" uid="uid://brglxopy6rqbp" path="res://checkpoint_1.tscn" id="10_yxhum"]
+[ext_resource type="PackedScene" uid="uid://cgpep1oul7ydl" path="res://nissan_gtr.tscn" id="11_mn3g6"]
+
+[sub_resource type="GDScript" id="GDScript_w1es1"]
+script/source = "extends Node3D
+
+var mapSize = 100
+var mapTile = preload(\"res://trackBox.tscn\")
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	for i in range(mapSize):
+		for j in range(mapSize):
+			var tile = mapTile.instantiate()
+			tile.position = Vector3(j,0,i)
+			add_child(tile)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tn2x1"]
+size = Vector3(1, 1.00208, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c0o0g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_120la"]
+
+[node name="level" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0151605, 0.391438, -0.92008, -0.00644899, 0.920205, 0.391385, 0.999864, -2.72487e-10, 0.0164751, -3.77873, 4.41917, 0)
+
+[node name="MapSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.2439, 0, 0)
+script = SubResource("GDScript_w1es1")
+
+[node name="tileTimer" type="Timer" parent="MapSpawner"]
+
+[node name="Node3D" parent="." instance=ExtResource("1_sug1k")]
+
+[node name="VehicleBody3D" parent="." instance=ExtResource("2_eowem")]
+transform = Transform3D(0.00485176, 0, 0.999988, 0, 1, 0, -0.999989, 0, 0.00485176, 0.307491, 2.25733, -16.0363)
+visible = false
+
+[node name="trackBox" parent="." instance=ExtResource("3_siyoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261913, -0.483259, 2.50842)
+
+[node name="Obstacle1" parent="." instance=ExtResource("4_eyu15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9665, 2.62254, -16.5505)
+
+[node name="Obstacle2" parent="." instance=ExtResource("5_doxny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6093, 2.23661, -9.80833)
+
+[node name="Obstacle3" parent="." instance=ExtResource("6_17yyr")]
+transform = Transform3D(5.42439, 0, 0, 0, 0.29548, 0, 0, 0, 0.791048, 21.7289, 2.41109, 2.56778)
+
+[node name="Obstacle4" parent="." instance=ExtResource("7_7k8en")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6522, 3.31707, 13.6489)
+
+[node name="Obstacle5" parent="." instance=ExtResource("8_o2coe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6522, 3.31707, 13.6489)
+
+[node name="Obstacle6" parent="." instance=ExtResource("9_uwsmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.19331, 3.31707, 22.7206)
+
+[node name="Checkpoint1" parent="." instance=ExtResource("10_yxhum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18615, 0.448316, -17.0644)
+
+[node name="CP1" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07928, 2.64018, -17.0425)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CP1"]
+transform = Transform3D(1, 0, 0, 0, 14.3192, 0, 0, 0, 12.1012, 0, 0.00719428, -0.0747604)
+shape = SubResource("BoxShape3D_tn2x1")
+
+[node name="Nissan GTR" parent="." instance=ExtResource("11_mn3g6")]
+transform = Transform3D(0.0296662, 3.38286e-16, 0.99956, 3.48787e-16, 1, -3.48787e-16, -0.99956, 3.58981e-16, 0.0296662, 0, 4.47524, -37.5942)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.921804, 3.38286e-16, 50.0306, 1.08377e-14, 1, -1.74577e-14, -31.0589, 3.58981e-16, 1.48487, -0.275994, 2.68504, -37.7694)
+shape = SubResource("BoxShape3D_c0o0g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D2"]
+mesh = SubResource("BoxMesh_120la")
+
+[connection signal="body_entered" from="CP1" to="VehicleBody3D" method="_on_cp_1_body_entered"]
