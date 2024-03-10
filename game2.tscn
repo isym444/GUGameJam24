@@ -86,8 +86,7 @@ func _on_area_3d_body_entered(body):
 
 func _on_target_body_entered(body):
 	if(body==self):
-		print(\"Congrats you won!\")
-		global_transform.origin = starting_position
+		get_tree().change_scene_to_file(\"res://end_screen.tscn\")
 
 
 func _on_respawner_body_entered(body):
@@ -95,6 +94,13 @@ func _on_respawner_body_entered(body):
 		linear_velocity = Vector3.ZERO  # Stop any linear movement
 		angular_velocity = Vector3.ZERO  # Stop any rotational movement
 		global_transform.origin = starting_position
+
+
+
+func _on_target_body_entered2(body):
+	if(body==self):
+		Globals.winningPlayer=\"Player 2\"
+		get_tree().change_scene_to_file(\"res://end_screen.tscn\")
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ts83n"]
@@ -255,7 +261,7 @@ size = Vector2i(1750, 2150)
 render_target_update_mode = 4
 
 [node name="Player" type="VehicleBody3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.0952, 2.54502, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.3183, 1.24097, 2.04708)
 gravity_scale = 4.0
 center_of_mass_mode = 1
 script = ExtResource("4_jukhv")
@@ -348,7 +354,7 @@ size = Vector2i(1750, 2150)
 render_target_update_mode = 4
 
 [node name="Player2" type="VehicleBody3D" parent="Control/HBoxContainer/SubViewportContainer2/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5591, 3.66312, 1.41972)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.9623, 1.41893, 2.06582)
 gravity_scale = 4.0
 center_of_mass_mode = 1
 script = SubResource("GDScript_6ulu3")
@@ -582,7 +588,6 @@ shadow_enabled = true
 
 [node name="ground2" type="MeshInstance3D" parent="Control/SubViewportContainer3/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.51364, -0.585907, -0.237842, -97.5663)
-mesh = SubResource("BoxMesh_qpxt1")
 skeleton = NodePath("../../../..")
 
 [node name="Obstacle1" parent="Control/SubViewportContainer3/SubViewport/ground2" instance=ExtResource("1_de1x0")]
@@ -862,5 +867,6 @@ offset_bottom = 40.0
 [connection signal="body_entered" from="Control/SubViewportContainer3/SubViewport/ground2/Obstacle19/Area3D" to="Control/HBoxContainer/SubViewportContainer/SubViewport/Player" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Control/SubViewportContainer3/SubViewport/ground2/Obstacle21/Area3D" to="Control/HBoxContainer/SubViewportContainer/SubViewport/Player" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Control/SubViewportContainer3/SubViewport/ground2/Target" to="Control/HBoxContainer/SubViewportContainer/SubViewport/Player" method="_on_target_body_entered"]
+[connection signal="body_entered" from="Control/SubViewportContainer3/SubViewport/ground2/Target" to="Control/HBoxContainer/SubViewportContainer2/SubViewport/Player2" method="_on_target_body_entered2"]
 [connection signal="body_entered" from="Control/SubViewportContainer3/SubViewport/Node3D/respawner" to="Control/HBoxContainer/SubViewportContainer/SubViewport/Player" method="_on_respawner_body_entered"]
 [connection signal="body_entered" from="Control/SubViewportContainer3/SubViewport/Node3D/respawner2" to="Control/HBoxContainer/SubViewportContainer2/SubViewport/Player2" method="_on_respawner_body_entered"]

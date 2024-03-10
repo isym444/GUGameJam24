@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxg2cjykphgcf"]
+
+[ext_resource type="Script" path="res://rule.gd" id="1_de5on"]
+
+[node name="rule" type="Node2D"]
+script = ExtResource("1_de5on")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 839.0
+offset_bottom = 456.0
+color = Color(0.0352941, 0.137255, 0.211765, 1)
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+offset_right = 839.0
+offset_bottom = 458.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "
+
+
+For one player, use wasd keys
+
+For two players, use wasd and arrow keys
+
+
+
+"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Play"
+
+[node name="back" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Back
+"
+
+[node name="Quit" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

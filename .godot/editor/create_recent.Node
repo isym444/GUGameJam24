@@ -1,11 +1,12 @@
+ColorRect
+Label
+Button
+Node3D
+MeshInstance3D
 SubViewportContainer
 SubViewport
 HBoxContainer
 Control
-Button
-Label
-MeshInstance3D
-Node3D
 CSGBox3D
 AudioStreamPlayer
 AudioStreamPlayer3D

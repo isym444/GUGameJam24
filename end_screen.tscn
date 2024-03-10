@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://c36ffpfc6bgwy"]
+
+[ext_resource type="Script" path="res://end_screen.gd" id="1_mu21e"]
+[ext_resource type="Script" path="res://Label.gd" id="2_buwgk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ovxl7"]
+font_size = 126
+
+[sub_resource type="LabelSettings" id="LabelSettings_jwnc8"]
+font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_51a8a"]
+font_size = 96
+
+[sub_resource type="LabelSettings" id="LabelSettings_ioobj"]
+font_size = 56
+
+[node name="EndScreen" type="Node2D"]
+script = ExtResource("1_mu21e")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1988.0
+offset_bottom = 1058.0
+color = Color(0.0352941, 0.137255, 0.211765, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1988.0
+offset_bottom = 227.0
+text = "You Have Reached the Finish!!!"
+label_settings = SubResource("LabelSettings_ovxl7")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+script = ExtResource("2_buwgk")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 42.0
+offset_top = 217.0
+offset_right = 1944.0
+offset_bottom = 559.0
+text = "Glasgow University Game Jam 13.
+Thanks To GUGameDev for hosting this game jam."
+label_settings = SubResource("LabelSettings_jwnc8")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 188.0
+offset_top = 410.0
+offset_right = 739.0
+offset_bottom = 542.0
+pivot_offset = Vector2(470, 100)
+text = "Coding:"
+label_settings = SubResource("LabelSettings_51a8a")
+
+[node name="Label3" type="Label" parent="Label3"]
+layout_mode = 0
+offset_left = 955.0
+offset_top = -5.0
+offset_right = 1569.0
+offset_bottom = 127.0
+pivot_offset = Vector2(470, 100)
+text = "Asset Design:"
+label_settings = SubResource("LabelSettings_51a8a")
+
+[node name="Label" type="Label" parent="Label3"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 164.0
+offset_right = 641.0
+offset_bottom = 443.0
+text = "Luca Rogers
+Ian Samir Yep Manzano
+Rei Mito"
+label_settings = SubResource("LabelSettings_ioobj")
+
+[node name="Label" type="Label" parent="Label3/Label"]
+layout_mode = 0
+offset_left = 945.0
+offset_top = 1.0
+offset_right = 1581.0
+offset_bottom = 126.0
+text = "Kohei Maruyama"
+label_settings = SubResource("LabelSettings_ioobj")
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 648.0
+offset_top = 757.0
+offset_right = 1214.0
+offset_bottom = 1013.0
+theme_override_font_sizes/font_size = 141
+text = "Restart"
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

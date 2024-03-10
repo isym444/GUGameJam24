@@ -12,3 +12,12 @@ res://obstacle_1.tscn
 res://obstacle_2.tscn
 res://game.tscn
 res://start_menu.tscn
+res://end_screen.tscn
+res://end_screen.gd
+res://Player.gd
+res://menu.tscn
+res://rule.tscn
+res://rule.gd
+res://Start.gd
+res://Globals.gd
+res://Label.gd
