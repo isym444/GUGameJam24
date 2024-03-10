@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfb3sb615kadu"]
+
+[ext_resource type="Script" path="res://start_menu.gd" id="1_uatdr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k1rxl"]
+font_size = 72
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_uatdr")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1155.0
+offset_bottom = 251.0
+text = "Unnamed Car Game"
+label_settings = SubResource("LabelSettings_k1rxl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="1 Player" type="Button" parent="."]
+offset_left = 59.0
+offset_top = 328.0
+offset_right = 484.0
+offset_bottom = 573.0
+
+[node name="2 Players" type="Button" parent="."]
+offset_left = 671.0
+offset_top = 329.0
+offset_right = 1096.0
+offset_bottom = 566.0
+
+[connection signal="pressed" from="1 Player" to="." method="_on_1_player_pressed"]
+[connection signal="pressed" from="2 Players" to="." method="_on_2_players_pressed"]
