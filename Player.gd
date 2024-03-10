@@ -52,8 +52,7 @@ func _on_area_3d_body_entered(body):
 
 func _on_target_body_entered(body):
 	if(body==self):
-		print("Congrats you won!")
-		global_transform.origin = starting_position
+		get_tree().change_scene_to_file("res://game_end.tscn")
 
 
 func _on_respawner_body_entered(body):
