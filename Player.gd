@@ -54,3 +54,10 @@ func _on_target_body_entered(body):
 	if(body==self):
 		print("Congrats you won!")
 		global_transform.origin = starting_position
+
+
+func _on_respawner_body_entered(body):
+	if(body==self):
+		linear_velocity = Vector3.ZERO  # Stop any linear movement
+		angular_velocity = Vector3.ZERO  # Stop any rotational movement
+		global_transform.origin = starting_position

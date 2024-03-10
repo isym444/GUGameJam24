@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chsfaa5i7hi6p"]
+[gd_scene load_steps=17 format=3 uid="uid://chsfaa5i7hi6p"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_cr4q0"]
 [ext_resource type="ArrayMesh" uid="uid://duo0vs1tuk45v" path="res://kart.obj" id="2_oawuo"]
@@ -23,10 +23,133 @@ data = PackedVector3Array(-25, 0.5, 25, 25, 0.5, 25, -25, -0.5, 25, 25, 0.5, 25,
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1xx1p"]
 
+[sub_resource type="GDScript" id="GDScript_4wsyw"]
+resource_name = "plane_controller"
+script/source = "extends Node3D
+
+@onready var csg_box1 = $CSGBox3D as CSGBox3D
+@onready var csg_box2 = $CSGBox3D2 as CSGBox3D
+@onready var csg_box3 = $CSGBox3D3 as CSGBox3D
+@onready var csg_box4 = $CSGBox3D4 as CSGBox3D
+
+var active
+var planes 
+func _ready():
+	csg_box1.visible=true
+	csg_box1.use_collision=true
+	csg_box2.visible=false
+	csg_box2.use_collision=false
+	csg_box3.visible=false
+	csg_box3.use_collision=false
+	csg_box4.visible=false
+	csg_box4.use_collision=false
+	active=csg_box1
+	planes=[csg_box1, csg_box2, csg_box3, csg_box4]
+
+var timer=0
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	timer+=delta
+	if(timer>=2):
+		var ri = randi() % 4
+		while(planes[ri]==active):
+			ri = randi() % 4
+		print(active)
+		active.visible=false
+		active.use_collision=false
+		planes[ri].visible=true
+		planes[ri].use_collision=true
+		active=planes[ri]
+		timer=0
+		
+"
+
+[sub_resource type="GDScript" id="GDScript_ga3i1"]
+resource_name = "firstholes"
+script/source = "extends CSGBox3D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	visible=false
+
+var timer=0
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+	#timer+=delta
+	#if(timer>=2):
+		#timer=0
+		##print(\"hello world\")
+		#if(visible==true):
+			#visible = false
+			#use_collision = false # Disable collision
+		#else:
+			#visible = true
+			#use_collision = true
+	
+	
+"
+
+[sub_resource type="GDScript" id="GDScript_u4pvw"]
+resource_name = "holes2"
+script/source = "extends CSGBox3D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+var timer=0
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	#timer+=delta
+	#if(timer>=2):
+		#timer=0
+		##print(\"hello world\")
+		#if(visible==true):
+			#visible = false
+			#use_collision = false # Disable collision
+		#else:
+			#visible = true
+			#use_collision = true
+	pass	
+	
+"
+
+[sub_resource type="GDScript" id="GDScript_otijc"]
+resource_name = "holes3"
+script/source = "extends CSGBox3D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+var timer=0
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	#timer+=delta
+	#if(timer>=2):
+		#timer=0
+		##print(\"hello world\")
+		#if(visible==true):
+			#visible = false
+			#use_collision = false # Disable collision
+		#else:
+			#visible = true
+			#use_collision = true
+	pass
+	
+	
+"
+
 [node name="Game" type="Node3D"]
 
 [node name="Player" type="VehicleBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54502, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.0952, 2.54502, 0)
 gravity_scale = 4.0
 center_of_mass_mode = 1
 script = ExtResource("1_cr4q0")
@@ -103,6 +226,7 @@ pitch_scale = 2.0
 
 [node name="ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.51364, -0.585907, -0.237842, -97.5663)
+visible = false
 mesh = SubResource("BoxMesh_qpxt1")
 
 [node name="Obstacle1" parent="ground" instance=ExtResource("3_uj50o")]
@@ -232,6 +356,260 @@ shadow_enabled = true
 
 [node name="CameraPivot" type="Node3D" parent="."]
 
+[node name="ground2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.51364, -0.585907, -0.237842, -97.5663)
+mesh = SubResource("BoxMesh_qpxt1")
+
+[node name="Obstacle1" parent="ground2" instance=ExtResource("3_uj50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 96.9773, 1.91963, 18.2854)
+
+[node name="Area3D" type="Area3D" parent="ground2/Obstacle1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground2/Obstacle1/Area3D"]
+transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_j8lfs")
+
+[node name="Obstacle2" parent="ground2" instance=ExtResource("4_ioumi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 87.7099, 1.91963, 18.1058)
+
+[node name="Obstacle3" parent="ground2" instance=ExtResource("5_brqfd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.464, 0, 17.8107)
+
+[node name="Obstacle4" parent="ground2" instance=ExtResource("4_ioumi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 91.1633, 1.91963, 16.1629)
+
+[node name="Obstacle5" parent="ground2" instance=ExtResource("4_ioumi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 101.842, 1.91963, 14.4606)
+
+[node name="Area3D" type="Area3D" parent="ground2/Obstacle5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground2/Obstacle5/Area3D"]
+transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_j8lfs")
+
+[node name="Obstacle6" parent="ground2" instance=ExtResource("4_ioumi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 84.1359, 1.91963, 10.7821)
+
+[node name="Obstacle7" parent="ground2" instance=ExtResource("4_ioumi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 99.1727, 1.91963, 7.30078)
+
+[node name="Obstacle8" parent="ground2" instance=ExtResource("4_ioumi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 91.1633, 1.91963, 0.307631)
+
+[node name="Area3D" type="Area3D" parent="ground2/Obstacle8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground2/Obstacle8/Area3D"]
+transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_j8lfs")
+
+[node name="Obstacle9" parent="ground2" instance=ExtResource("4_ioumi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 91.1633, 1.91963, -8.76996)
+
+[node name="Obstacle10" parent="ground2" instance=ExtResource("4_ioumi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 105.324, 1.91963, -3.4564)
+
+[node name="Obstacle11" parent="ground2" instance=ExtResource("4_ioumi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 104.938, 1.91963, 3.99071)
+
+[node name="Obstacle12" parent="ground2" instance=ExtResource("4_ioumi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 106.563, 1.91963, -11.3696)
+
+[node name="Obstacle13" parent="ground2" instance=ExtResource("4_ioumi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 108.874, 1.91963, 11.8338)
+
+[node name="Obstacle14" parent="ground2" instance=ExtResource("3_uj50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 85.4274, 1.91963, 13.9415)
+
+[node name="Area3D" type="Area3D" parent="ground2/Obstacle14"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground2/Obstacle14/Area3D"]
+transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_j8lfs")
+
+[node name="Obstacle15" parent="ground2" instance=ExtResource("3_uj50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 96.9773, 1.91963, 15.0133)
+
+[node name="Obstacle16" parent="ground2" instance=ExtResource("3_uj50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 87.3691, 1.91963, 11.53)
+
+[node name="Obstacle17" parent="ground2" instance=ExtResource("3_uj50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 96.9773, 1.91963, 9.57986)
+
+[node name="Area3D" type="Area3D" parent="ground2/Obstacle17"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground2/Obstacle17/Area3D"]
+transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_j8lfs")
+
+[node name="Obstacle18" parent="ground2" instance=ExtResource("3_uj50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 86.619, 1.91963, 7.41504)
+
+[node name="Obstacle19" parent="ground2" instance=ExtResource("3_uj50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 104.238, 1.91963, 1.65763)
+
+[node name="Area3D" type="Area3D" parent="ground2/Obstacle19"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground2/Obstacle19/Area3D"]
+transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_j8lfs")
+
+[node name="Obstacle20" parent="ground2" instance=ExtResource("3_uj50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 83.6263, 1.91963, -5.49205)
+
+[node name="Obstacle21" parent="ground2" instance=ExtResource("3_uj50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 113.282, 1.91963, -5.6153)
+
+[node name="Area3D" type="Area3D" parent="ground2/Obstacle21"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground2/Obstacle21/Area3D"]
+transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_j8lfs")
+
+[node name="Obstacle22" parent="ground2" instance=ExtResource("3_uj50o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.221551, 78.2035, 1.91963, -2.78233)
+
+[node name="Target" type="Area3D" parent="ground2"]
+transform = Transform3D(10.3598, 0, 0, 0, 45.2747, 0, 0, 0, 23.3124, 95.6238, 0, -15.1324)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground2/Target"]
+transform = Transform3D(0.120606, 0, 0, 0, 1.48605, 0, 0, 0, 0.000287005, 0, 0, -0.000278473)
+shape = SubResource("ConcavePolygonShape3D_45i71")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ground2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground2/StaticBody3D"]
+transform = Transform3D(51.2909, 0, 0, 0, 1, 0, 0, 0, 49.8973, 0, 0.219707, 0)
+shape = SubResource("BoxShape3D_1xx1p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(51.2909, 0, 0, 0, 1, 0, 0, 0, 49.8973, 0, 0.219707, 0)
+shape = SubResource("BoxShape3D_1xx1p")
+
+[node name="Node3D" type="Node3D" parent="."]
+script = SubResource("GDScript_4wsyw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.0096, -0.447678, -95.0672)
+use_collision = true
+size = Vector3(54.9534, 1, 233.465)
+script = SubResource("GDScript_ga3i1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5802, 0.892584, 35.1979)
+operation = 2
+size = Vector3(30.0399, 10, 18.12)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5739, 0.892584, -12.8697)
+operation = 2
+size = Vector3(34.8262, 10, 18.12)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5802, 0.892584, -58.5033)
+operation = 2
+size = Vector3(30.0399, 10, 18.12)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Node3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8903, 0.892584, 66.796)
+operation = 2
+size = Vector3(30.0399, 10, 18.12)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.1038, -0.360435, -97.1513)
+visible = false
+size = Vector3(55.0244, 1, 237.528)
+script = SubResource("GDScript_u4pvw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55135, 1.75274, -19.3829)
+operation = 2
+size = Vector3(4.83008, 10, 18.12)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55135, 1.75274, 27.5395)
+operation = 2
+size = Vector3(4.83008, 10, 18.12)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.63809, 1.75274, 72.1049)
+operation = 2
+size = Vector3(4.83008, 10, 18.12)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Node3D/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4098, 1.75274, 5.55155)
+operation = 2
+size = Vector3(4.83008, 10, 18.12)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Node3D/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4845, 1.75274, -19.3829)
+operation = 2
+size = Vector3(4.83008, 10, 18.12)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.2482, -0.360435, -97.9296)
+visible = false
+size = Vector3(53.5564, 1, 239.085)
+script = SubResource("GDScript_otijc")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D/CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55135, 1.75274, 47.41)
+operation = 2
+size = Vector3(4.83008, 10, 4.68744)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D/CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97861, 1.75274, 28.8363)
+operation = 2
+size = Vector3(4.83008, 10, 4.68744)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D/CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24884, 1.75274, 10.4198)
+operation = 2
+size = Vector3(4.83008, 10, 4.68744)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Node3D/CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05766, 1.75274, -11.8036)
+operation = 2
+size = Vector3(4.83008, 10, 4.68744)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Node3D/CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.17853, 1.75274, -27.5608)
+operation = 2
+size = Vector3(4.83008, 10, 4.68744)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.9719, -0.447678, -95.0672)
+use_collision = true
+size = Vector3(54.9534, 1, 233.465)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200287, 0.892584, 35.1979)
+operation = 2
+size = Vector3(30.0399, 10, 18.12)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9084, 0.213003, -14.6372)
+operation = 2
+size = Vector3(18.0829, 10, 18.12)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045166, 0.892584, -58.5033)
+operation = 2
+size = Vector3(30.0399, 10, 18.12)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Node3D/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.771561, 0.892584, 66.796)
+operation = 2
+size = Vector3(30.0399, 10, 18.12)
+
+[node name="respawner" type="Area3D" parent="Node3D"]
+transform = Transform3D(105.212, 0, 0, 0, 0.614437, 0, 0, 0, 412.6, 93.5404, -1.09499, -116.471)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/respawner"]
+transform = Transform3D(1.09638, 0, 0, 0, 3.5293, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_j8lfs")
+
 [connection signal="body_entered" from="ground/Obstacle1/Area3D" to="Player" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="ground/Obstacle5/Area3D" to="Player" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="ground/Obstacle8/Area3D" to="Player" method="_on_area_3d_body_entered"]
@@ -240,3 +618,12 @@ shadow_enabled = true
 [connection signal="body_entered" from="ground/Obstacle19/Area3D" to="Player" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="ground/Obstacle21/Area3D" to="Player" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="ground/Target" to="Player" method="_on_target_body_entered"]
+[connection signal="body_entered" from="ground2/Obstacle1/Area3D" to="Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="ground2/Obstacle5/Area3D" to="Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="ground2/Obstacle8/Area3D" to="Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="ground2/Obstacle14/Area3D" to="Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="ground2/Obstacle17/Area3D" to="Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="ground2/Obstacle19/Area3D" to="Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="ground2/Obstacle21/Area3D" to="Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="ground2/Target" to="Player" method="_on_target_body_entered"]
+[connection signal="body_entered" from="Node3D/respawner" to="Player" method="_on_respawner_body_entered"]
