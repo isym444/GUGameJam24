@@ -261,7 +261,7 @@ size = Vector2i(1750, 2150)
 render_target_update_mode = 4
 
 [node name="Player" type="VehicleBody3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.3183, 1.24097, 2.04708)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.8621, 1.24097, 2.04708)
 gravity_scale = 4.0
 center_of_mass_mode = 1
 script = ExtResource("4_jukhv")
@@ -354,7 +354,7 @@ size = Vector2i(1750, 2150)
 render_target_update_mode = 4
 
 [node name="Player2" type="VehicleBody3D" parent="Control/HBoxContainer/SubViewportContainer2/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.9623, 1.41893, 2.06582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.0191, 1.41893, 2.06582)
 gravity_scale = 4.0
 center_of_mass_mode = 1
 script = SubResource("GDScript_6ulu3")
@@ -364,7 +364,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4347
 mesh = ExtResource("5_b3268")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/HBoxContainer/SubViewportContainer2/SubViewport/Player2"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.434793, -1.10495, 1.12794)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.434792, -1.10495, 1.12794)
 shape = SubResource("ConvexPolygonShape3D_dixyc")
 
 [node name="Front_left_wheel" type="VehicleWheel3D" parent="Control/HBoxContainer/SubViewportContainer2/SubViewport/Player2"]
