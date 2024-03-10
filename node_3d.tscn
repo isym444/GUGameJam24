@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmmnqlkosduru"]
+[gd_scene load_steps=11 format=3 uid="uid://bmmnqlkosduru"]
 
 [ext_resource type="PackedScene" uid="uid://dpds2x0mr8bhp" path="res://mock_racetrack.tscn" id="1_sug1k"]
 [ext_resource type="PackedScene" uid="uid://d2chx56eyuvjg" path="res://kart.tscn" id="2_eowem"]
 [ext_resource type="Shader" path="res://pixel.gdshader" id="3_456jl"]
 [ext_resource type="Shader" path="res://toon.gdshader" id="3_rq1b5"]
+[ext_resource type="AudioStream" uid="uid://bq0mem2byfbjv" path="res://sound/carSound.mp3" id="5_mc2xu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nop8r"]
 render_priority = 1
@@ -84,3 +85,9 @@ script = SubResource("GDScript_w1es1")
 
 [node name="VehicleBody3D" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_eowem")]
 transform = Transform3D(0.13236, 0, 0.991202, 0, 1, 0, -0.991202, 0, 0.13236, 2.30569, 1.5058, -15.6129)
+
+[node name="carSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_mc2xu")
+volume_db = -0.25
+pitch_scale = 1.82
+max_polyphony = 2
