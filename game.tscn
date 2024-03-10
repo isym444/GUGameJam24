@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://chsfaa5i7hi6p"]
+[gd_scene load_steps=20 format=3 uid="uid://chsfaa5i7hi6p"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_cr4q0"]
 [ext_resource type="ArrayMesh" uid="uid://duo0vs1tuk45v" path="res://kart.obj" id="2_oawuo"]
@@ -42,6 +42,8 @@ size = Vector3(50, 1, 50)
 data = PackedVector3Array(-25, 0.5, 25, 25, 0.5, 25, -25, -0.5, 25, 25, 0.5, 25, 25, -0.5, 25, -25, -0.5, 25, 25, 0.5, -25, -25, 0.5, -25, 25, -0.5, -25, -25, 0.5, -25, -25, -0.5, -25, 25, -0.5, -25, 25, 0.5, 25, 25, 0.5, -25, 25, -0.5, 25, 25, 0.5, -25, 25, -0.5, -25, 25, -0.5, 25, -25, 0.5, -25, -25, 0.5, 25, -25, -0.5, -25, -25, 0.5, 25, -25, -0.5, 25, -25, -0.5, -25, 25, 0.5, 25, -25, 0.5, 25, 25, 0.5, -25, -25, 0.5, 25, -25, 0.5, -25, 25, 0.5, -25, -25, -0.5, 25, 25, -0.5, 25, -25, -0.5, -25, 25, -0.5, 25, 25, -0.5, -25, -25, -0.5, -25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1xx1p"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8e03a"]
 
 [node name="Game" type="Node3D"]
 
@@ -280,6 +282,16 @@ shape = SubResource("BoxShape3D_1xx1p")
 
 [node name="CameraPivot" type="Node3D" parent="SubViewportContainer/SubViewport/level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.54502, 0)
+
+[node name="outLevel" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/outLevel"]
+transform = Transform3D(-0.871487, 0, 1363.25, 0, 1, 0, -1513.04, 0, -0.785186, 1387.7, 0.2, 0)
+mesh = SubResource("PlaneMesh_8e03a")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/outLevel"]
+transform = Transform3D(-0.871487, 0, 1363.25, 0, 1, 0, -1513.04, 0, -0.785186, -1387.9, 0.2, 0)
+mesh = SubResource("PlaneMesh_8e03a")
 
 [connection signal="body_entered" from="SubViewportContainer/SubViewport/level/ground/Obstacle1/Area3D" to="SubViewportContainer/SubViewport/Player" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="SubViewportContainer/SubViewport/level/ground/Obstacle5/Area3D" to="SubViewportContainer/SubViewport/Player" method="_on_area_3d_body_entered"]
