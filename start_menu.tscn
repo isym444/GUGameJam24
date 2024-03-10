@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpcru0tkg11b"]
+
+[sub_resource type="GDScript" id="GDScript_8gpy4"]
+script/source = "extends Node2D
+
+
+func _on_p_pressed():
+	get_tree().change_scene_to_file(\"res://game.tscn\")
+
+
+func _on_2p_pressed():
+	pass # Replace with function body.
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_701ps"]
+font_size = 72
+
+[node name="startMenu" type="Node2D"]
+script = SubResource("GDScript_8gpy4")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1157.0
+offset_bottom = 238.0
+text = "Car Game"
+label_settings = SubResource("LabelSettings_701ps")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="1p" type="Button" parent="."]
+offset_left = 26.0
+offset_top = 253.0
+offset_right = 560.0
+offset_bottom = 607.0
+text = "1 Player"
+
+[node name="2p" type="Button" parent="."]
+offset_left = 589.0
+offset_top = 249.0
+offset_right = 1125.0
+offset_bottom = 603.0
+text = "2 Players"
+
+[connection signal="pressed" from="1p" to="." method="_on_p_pressed"]
+[connection signal="pressed" from="2p" to="." method="_on_2p_pressed"]

@@ -1,3 +1,8 @@
+Button
+Label
+MeshInstance3D
+SubViewport
+SubViewportContainer
 Node3D
 CSGBox3D
 AudioStreamPlayer
@@ -5,10 +10,5 @@ AudioStreamPlayer3D
 CollisionShape3D
 Area3D
 StaticBody3D
-MeshInstance3D
 Camera3D
 VehicleWheel3D
-VehicleBody3D
-RigidBody3D
-CSGPolygon3D
-Path3D
