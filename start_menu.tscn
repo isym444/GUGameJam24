@@ -9,7 +9,7 @@ func _on_p_pressed():
 
 
 func _on_2p_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file(\"res://game2.tscn\")
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_701ps"]

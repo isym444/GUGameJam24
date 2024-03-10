@@ -1,4 +1,4 @@
-res://game.tscn
+res://game2.tscn
 res://os1script.gd
 res://character_body_3d.tscn
 res://checkpoint.tscn
@@ -8,8 +8,7 @@ res://trackBox.tscn
 res://obstacle_4.tscn
 res://checkpoint_1.tscn
 res://car.tscn
-res://nissan_gtr.tscn
 res://obstacle_1.tscn
 res://obstacle_2.tscn
-res://Player.gd
+res://game.tscn
 res://start_menu.tscn

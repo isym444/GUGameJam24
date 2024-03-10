@@ -1,8 +1,10 @@
+SubViewportContainer
+SubViewport
+HBoxContainer
+Control
 Button
 Label
 MeshInstance3D
-SubViewport
-SubViewportContainer
 Node3D
 CSGBox3D
 AudioStreamPlayer
@@ -10,5 +12,3 @@ AudioStreamPlayer3D
 CollisionShape3D
 Area3D
 StaticBody3D
-Camera3D
-VehicleWheel3D

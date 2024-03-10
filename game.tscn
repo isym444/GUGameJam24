@@ -55,7 +55,7 @@ func _process(delta):
 		var ri = randi() % 4
 		while(planes[ri]==active):
 			ri = randi() % 4
-		print(active)
+		#print(active)
 		active.visible=false
 		active.use_collision=false
 		planes[ri].visible=true
@@ -179,7 +179,7 @@ stretch_shrink = 5
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(230, 129)
+size = Vector2i(396, 209)
 render_target_update_mode = 4
 
 [node name="ground" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
