@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmmnqlkosduru"]
+[gd_scene load_steps=7 format=3 uid="uid://bmmnqlkosduru"]
 
 [ext_resource type="PackedScene" uid="uid://dpds2x0mr8bhp" path="res://mock_racetrack.tscn" id="1_sug1k"]
 [ext_resource type="PackedScene" uid="uid://d2chx56eyuvjg" path="res://kart.tscn" id="2_eowem"]
+[ext_resource type="Shader" path="res://pixel.gdshader" id="3_456jl"]
 
 [sub_resource type="GDScript" id="GDScript_w1es1"]
 script/source = "extends Node3D
@@ -21,21 +22,48 @@ func _process(delta):
 	pass
 "
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dgmd2"]
+render_priority = 0
+shader = ExtResource("3_456jl")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vsrer"]
+material = SubResource("ShaderMaterial_dgmd2")
+flip_faces = true
+size = Vector2(2, 2)
+
 [node name="level" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.99425, 5.24674e-08, 0.10708, 0.054977, 0.858137, 0.510469, 0.091889, -0.513421, 0.853203, -0.110532, 12.6313, 21.7061)
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 6
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.0151605, 0.391438, -0.92008, -0.00644899, 0.920205, 0.391385, 0.999864, -2.72487e-10, 0.0164751, -3.77873, 4.41917, 0)
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(192, 108)
+render_target_update_mode = 4
 
-[node name="MapSpawner" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.2439, 0, 0)
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.99425, 5.24674e-08, 0.10708, 0.054977, 0.858137, 0.510469, 0.091889, -0.513421, 0.853203, 3.40341, 5.17196, -10.2054)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.0151605, 0.391438, -0.92008, -0.00644899, 0.920205, 0.391385, 0.999864, -2.79435e-09, 0.0164751, -3.77873, 4.41917, 0)
+
+[node name="MapSpawner" type="Node3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 9.31323e-10, -2.98023e-08, 1, 0, 0, 0, 1, -40.2439, 4.76837e-07, 0)
 script = SubResource("GDScript_w1es1")
 
-[node name="tileTimer" type="Timer" parent="MapSpawner"]
+[node name="tileTimer" type="Timer" parent="SubViewportContainer/SubViewport/MapSpawner"]
 
-[node name="Node3D" parent="." instance=ExtResource("1_sug1k")]
+[node name="Node3D" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_sug1k")]
 
-[node name="VehicleBody3D" parent="." instance=ExtResource("2_eowem")]
+[node name="VehicleBody3D" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_eowem")]
 transform = Transform3D(0.13236, 0, 0.991202, 0, 1, 0, -0.991202, 0, 0.13236, 2.30569, 1.5058, -15.6129)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+mesh = SubResource("QuadMesh_vsrer")
