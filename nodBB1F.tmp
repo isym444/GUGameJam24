@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmmnqlkosduru"]
+
+[sub_resource type="GDScript" id="GDScript_w1es1"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var mapTile = load(\"res://trackBox.tscn\")
+	var tile = mapTile.instantiate()
+	add_child(tile)
+	queue_free()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="level" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.99425, -3.09062e-09, 0.10708, 0.054977, 0.858137, 0.510469, 0.091889, -0.513421, 0.853203, -0.110532, 3.91346, 4.6562)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0151605, 0.391438, -0.92008, -0.00644899, 0.920205, 0.391385, 0.999864, -2.72487e-10, 0.0164751, -3.77873, 4.41917, 0)
+
+[node name="MapSpawner" type="Node3D" parent="."]
+script = SubResource("GDScript_w1es1")
+
+[node name="tileTimer" type="Timer" parent="MapSpawner"]
