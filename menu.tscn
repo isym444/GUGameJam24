@@ -39,7 +39,7 @@ text = "Play"
 
 [node name="Rule" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Rule
+text = "Rules
 "
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
