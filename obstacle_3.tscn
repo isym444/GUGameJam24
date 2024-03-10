@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://gb66l3q8rh3o"]
+
+[ext_resource type="PackedScene" uid="uid://c17nfm2mvvuxs" path="res://obstacle_2.tscn" id="1_ko3a1"]
+
+[sub_resource type="GDScript" id="GDScript_o20cx"]
+resource_name = "os3script"
+script/source = "extends CSGBox3D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+var timer=0
+var speed = Vector3(1, 0, 0) # This will move the box along the X axis
+var rotate_speed = Vector3(0, 1, 0) # This will rotate the box around the Y axis
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	#timer+=delta
+	rotation_degrees += rotate_speed * delta * 180.0 / PI
+#
+	#if(timer>=1):
+		#timer=0
+		##print(\"hello world\")
+		#if(visible==true):
+			#visible = false
+			#use_collision = false # Disable collision
+		#else:
+			#visible = true
+			#use_collision = true
+	
+"
+
+[node name="Obstacle3" instance=ExtResource("1_ko3a1")]
+
+[node name="obstacle3csgbox" parent="." index="0"]
+script = SubResource("GDScript_o20cx")

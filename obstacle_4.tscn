@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://s0o7hnwncsan"]
+
+[ext_resource type="PackedScene" uid="uid://gb66l3q8rh3o" path="res://obstacle_3.tscn" id="1_ey3te"]
+
+[sub_resource type="GDScript" id="GDScript_4veqk"]
+resource_name = "os4"
+script/source = "extends CSGBox3D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+var timer=0
+var speed = Vector3(1, 0, 0) # This will move the box along the X axis
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	timer+=delta
+	if(timer>=5):
+		timer=0
+		#print(\"hello world\")
+		if(visible==true):
+			visible = false
+			use_collision = false # Disable collision
+		else:
+			visible = true
+			use_collision = true
+	
+"
+
+[node name="Obstacle4" instance=ExtResource("1_ey3te")]
+
+[node name="obstacle3csgbox" parent="." index="0"]
+transform = Transform3D(1.18342, 0, 0, 0, -0.0603176, 0.999836, 0, -3.32906, -0.0181155, 0, 0.0390412, 0)
+script = SubResource("GDScript_4veqk")

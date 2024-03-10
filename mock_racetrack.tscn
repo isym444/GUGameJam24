@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpds2x0mr8bhp"]
+[gd_scene load_steps=3 format=3 uid="uid://dpds2x0mr8bhp"]
+
+[ext_resource type="Script" path="res://CSGPolygon3D.gd" id="1_amiq8"]
 
 [sub_resource type="Curve3D" id="Curve3D_f23mi"]
 _data = {
@@ -26,3 +28,4 @@ path_local = false
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = true
+script = ExtResource("1_amiq8")

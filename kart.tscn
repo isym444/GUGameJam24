@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2chx56eyuvjg"]
+[gd_scene load_steps=5 format=3 uid="uid://d2chx56eyuvjg"]
 
 [ext_resource type="PackedScene" uid="uid://cx37bg05gt6vo" path="res://model/kart.fbx" id="1_hgkhj"]
+[ext_resource type="Script" path="res://kart.gd" id="1_jpmes"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_oy81b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j7mkg"]
 
 [node name="VehicleBody3D" type="VehicleBody3D"]
+script = ExtResource("1_jpmes")
 
 [node name="Root Scene" parent="." instance=ExtResource("1_hgkhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126914, 0, 7.09633)
@@ -17,3 +19,8 @@ mesh = SubResource("BoxMesh_oy81b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_j7mkg")
+
+[node name="camerapivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.999001, 1.08427e-09, -0.044683, -0.015668, 0.936507, 0.350299, 0.041846, 0.350649, -0.935572, 0.61663, 4.67145, -5.74739)

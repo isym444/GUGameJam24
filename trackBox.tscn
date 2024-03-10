@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://i8ppstk7d7nx"]
+[gd_scene load_steps=2 format=3 uid="uid://dgix7rv2c5s4g"]
 
-[ext_resource type="Script" path="res://trackBox.gd" id="1_mvif0"]
+[ext_resource type="Script" path="res://CSGBox3D.gd" id="1_v1jpm"]
 
-[node name="CSGBox3D" type="CSGBox3D"]
-size = Vector3(1, 0, 1)
-script = ExtResource("1_mvif0")
+[node name="trackBox" type="Node3D"]
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+visible = false
+layers = 3
+script = ExtResource("1_v1jpm")
