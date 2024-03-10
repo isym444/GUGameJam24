@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://rule.gd" id="1_de5on"]
 
 [node name="rule" type="Node2D"]
+scale = Vector2(2.37, 2.37)
 script = ExtResource("1_de5on")
 
 [node name="ColorRect2" type="ColorRect" parent="."]

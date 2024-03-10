@@ -81,7 +81,7 @@ res://end_screen.tscn::3bee54549afc91cd29e7d5d5038ed48a::1710086788::res://.godo
 res://game2.tscn::36fa39028c0704683fa11f275f89714c::1710086788::res://.godot/exported/133200997/export-eb4a186f823d97d1f2fa14876af9211a-game2.scn
 res://game.tscn::e1aa87c7bd338b2546081712604a0fd6::1710086788::res://.godot/exported/133200997/export-609f762188a68253d349ec58c4f3a8d3-game.scn
 res://kart.tscn::169ad84b9a3bf9d49e41e875f3925428::1710086788::res://.godot/exported/133200997/export-b6bcc529ca33f94df4293941d96c0af1-kart.scn
-res://menu.tscn::bbf5d8b4219233a835fadf661ff5a163::1710086788::res://.godot/exported/133200997/export-a4951207776b25ee5c8b2b05c1463587-menu.scn
+res://menu.tscn::a3fef400b1b29555fcb7c990231e98c4::1710087836::res://.godot/exported/133200997/export-a4951207776b25ee5c8b2b05c1463587-menu.scn
 res://mock_racetrack.tscn::0f88638596314eed59f21ffb2f949ed3::1710086788::res://.godot/exported/133200997/export-be6db94768db749cf30472a4e750fd94-mock_racetrack.scn
 res://obstacle_1.tscn::de889e348c2951fb00bf9408db73a98d::1710086788::res://.godot/exported/133200997/export-7fa3413ca3222ec68a9c38983933f292-obstacle_1.scn
 res://obstacle_2.tscn::3c4f6bdb16635c94eb698f4f7d3273d5::1710086788::res://.godot/exported/133200997/export-b2e5a7bcb6cfa78961a36b083303fd8e-obstacle_2.scn
@@ -89,6 +89,6 @@ res://obstacle_3.tscn::541946713f478efa6b0559aef29e51b9::1710040252::res://.godo
 res://obstacle_4.tscn::e89be8148aee9658f9e1497e22e464ac::1710086788::res://.godot/exported/133200997/export-b6305e6d31892491f08d85a8a5488c36-obstacle_4.scn
 res://obstacle_5.tscn::d6febf51bee11144d789057f9006172f::1710040407::res://.godot/exported/133200997/export-01c0a2ed4c1690c7b8c16f24685d71a6-obstacle_5.scn
 res://obstacle_6.tscn::fd8f4d197184bd1511926b2bbe137c1b::1710040413::res://.godot/exported/133200997/export-aa57d4c9da2cab946e1e7f7d5205783a-obstacle_6.scn
-res://rule.tscn::d96a4c1665ccb5bb838061cdecca58f7::1710086788::res://.godot/exported/133200997/export-b1dd8cc8b715e33035e5099769b57ab7-rule.scn
-res://start_menu.tscn::4e6f17e2cca11b6fd159fedc4fe2a447::1710086797::res://.godot/exported/133200997/export-6ef4cc1f92f36a58300400127ea612ec-start_menu.scn
+res://rule.tscn::b4925c167658ba61613fbdafbe21a2a2::1710087853::res://.godot/exported/133200997/export-b1dd8cc8b715e33035e5099769b57ab7-rule.scn
+res://start_menu.tscn::1bbedbf5378e7d1d5e0fa7abbf0079f9::1710087822::res://.godot/exported/133200997/export-6ef4cc1f92f36a58300400127ea612ec-start_menu.scn
 res://trackBox.tscn::86c780ac8a6c87cb86471085d6800bbb::1710086788::res://.godot/exported/133200997/export-6bc223ae2b34cffb2713a9573d618ece-trackBox.scn

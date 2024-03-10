@@ -16,7 +16,7 @@ func _on_2p_pressed():
 font_size = 72
 
 [node name="startMenu" type="Node2D"]
-scale = Vector2(2.75, 2.75)
+scale = Vector2(1.71, 1.71)
 script = SubResource("GDScript_8gpy4")
 
 [node name="Label" type="Label" parent="."]
